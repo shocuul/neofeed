@@ -4,6 +4,27 @@
   <strong>Url:</strong>
   <%= @source.url %>
 </p>
+<p>Numero de Feed Actualmente <%= @source.feed_entries.count  %></p>
+<table>
+	<thead>
+		<tr>
+			<th width="200">Titulo </th>
+			<th width="100">Acciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @source.feed_entries.each do |entry| %>
+		<tr>
+
+			<td>Hola
+				<%= entry.name %>
+			</td>	
+			<td><%= link_to 'Accion', root_url %></td>
+			
+		</tr>
+		<% end %>
+	</tbody>
+</table>
 
 <%= link_to 'Edit', edit_source_path(@source) %> |
 <%= link_to 'Back', sources_path %>

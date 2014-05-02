@@ -5,7 +5,7 @@ class FeedEntry < ActiveRecord::Base
 	require 'nokogiri'
 
 	def self.update_from_feed(feed_url)
-		feed = feed = Feedjira::Feed.fetch_and_parse(feed_url.url)
+		feed = Feedjira::Feed.fetch_and_parse(feed_url.url)
 		add_entries(feed.entries, feed_url)
 	end
 

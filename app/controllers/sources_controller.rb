@@ -10,6 +10,7 @@ class SourcesController < ApplicationController
   # GET /sources/1
   # GET /sources/1.json
   def show
+    
   end
 
   # GET /sources/new
@@ -28,7 +29,7 @@ class SourcesController < ApplicationController
     
     respond_to do |format|
       if @source.save
-        FeedEntry.update_from_feed(@source)
+        @source.update_url
         format.html { redirect_to @source, notice: 'Source was successfully created.' }
         format.json { render action: 'show', status: :created, location: @source }
       else
